@@ -1,14 +1,11 @@
-# Lustre_ssg start template
+# `lustre_ssg` starter template
 
 This is a dead simple demo repo to show you how to get started _today_ with
-lustre and lustre_ssg. We're missing lots of using things that would make this
-experience nicer - most notably a nice markdown parser.
+[`lustre`](https://hexdocs.pm/lustre/lustre.html) and [`lustre_ssg`](https://hexdocs.pm/lustre_ssg/index.html).
 
-As a semi-workaround. This template repo defines a `Content` type (and a companion
-`InlineContent` type) that lets you write content in a slightly more focused
-manner than just directly writing the HTML.
+This template uses markup syntax [`djot`](https://djot.net/) which is parsed with [`lustre_ssg/djot`](https://hexdocs.pm/lustre_ssg/lustre/ssg/djot.html) which is in turn powered by [`jot`](https://hexdocs.pm/jot/) to render content.
 
-We use PicoCSS as a sensible drop-in CSS framework.
+We use [PicoCSS](https://picocss.com/) as a sensible drop-in CSS framework.
 
 ![An example website created with this template.](./example.png)
 
@@ -17,31 +14,19 @@ We use PicoCSS as a sensible drop-in CSS framework.
 Run `gleam run -m build` to generate the static HTML for your site. How you serve
 it is up to you: everything you need to serve will be in the `dist/` directory.
 
+The template also includes a GitHub Actions workflow that will build and deploy your site to GitHub Pages. The workflow is disabled by default, but you can enable it by uncommenting the `on` key in `.github/workflows/deploy.yml`.
+
 ## Adding pages
 
-Add a new page by creating another gleam file inside `src/content/`. From there
-import all the constructors you need from `content` and define a public const.
-Each page should look something like:
+Add a new page by creating another djot file inside `src/content/`, for example `src/content/your_new_page.dj`.
 
-```gleam
-import content.{Title, Section, Text}
-
-pub const content = [
-  Title("This is a page"),
-  Section([
-    Text("Here is some content!")
-  ])
-]
-```
-
-Then head over to the build script, import your new page, and add it to the
-pipeline:
+In the build script you can then add it to the pipeline like so:
 
 ```gleam
 pub fn main() {
   ssg.new("./dist")
-  |> ssg.add_static_route("/", page(index.content, "Home"))
-  |> ssg.add_static_route("/your-new-page", page(your_new_page.content, "Your new page!"))
+  |> ssg.add_static_route("/", page(render("./src/content/index.dj"), "Home"))
+  |> ssg.add_static_route("/your-new-page", page(render("./src/content/your_new_page.dj"), "Your new page!"))
   |> ...
 
 ```
