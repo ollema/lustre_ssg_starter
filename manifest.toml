@@ -2,16 +2,21 @@
 # You typically do not need to edit this file
 
 packages = [
-  { name = "gleam_stdlib", version = "0.31.0", build_tools = ["gleam"], requirements = [], otp_app = "gleam_stdlib", source = "hex", outer_checksum = "6D1BC5B4D4179B9FEE866B1E69FE180AC2CE485AD90047C0B32B2CA984052736" },
-  { name = "gleeunit", version = "0.11.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "gleeunit", source = "hex", outer_checksum = "1397E5C4AC4108769EE979939AC39BF7870659C5AFB714630DEEEE16B8272AD5" },
-  { name = "lustre", version = "3.0.9", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "lustre", source = "hex", outer_checksum = "CBD20163B7CB7FA2AC2BCFBAB5A083B22AED9612B6522BE479E8FEF09C82A9E1" },
-  { name = "lustre_ssg", version = "0.2.0", build_tools = ["gleam"], requirements = ["lustre", "simplifile", "gleam_stdlib"], otp_app = "lustre_ssg", source = "hex", outer_checksum = "0BA84D4069DB9CF799943E4FEC61207D59B34FD1186709ACB532FEB091D203B9" },
-  { name = "simplifile", version = "0.1.14", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "simplifile", source = "hex", outer_checksum = "10EA0207796F20488A3A166C50A189C9385333F3C9FAC187729DE7B9CE4ADDBC" },
+  { name = "filepath", version = "1.0.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "filepath", source = "hex", outer_checksum = "EFB6FF65C98B2A16378ABC3EE2B14124168C0CE5201553DE652E2644DCFDB594" },
+  { name = "gleam_erlang", version = "0.25.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "gleam_erlang", source = "hex", outer_checksum = "054D571A7092D2A9727B3E5D183B7507DAB0DA41556EC9133606F09C15497373" },
+  { name = "gleam_json", version = "1.0.1", build_tools = ["gleam"], requirements = ["gleam_stdlib", "thoas"], otp_app = "gleam_json", source = "hex", outer_checksum = "9063D14D25406326C0255BDA0021541E797D8A7A12573D849462CAFED459F6EB" },
+  { name = "gleam_otp", version = "0.11.2", build_tools = ["gleam"], requirements = ["gleam_erlang", "gleam_stdlib"], otp_app = "gleam_otp", source = "hex", outer_checksum = "517FFB679E44AD71D059F3EF6A17BA6EFC8CB94FA174D52E22FB6768CF684D78" },
+  { name = "gleam_stdlib", version = "0.40.0", build_tools = ["gleam"], requirements = [], otp_app = "gleam_stdlib", source = "hex", outer_checksum = "86606B75A600BBD05E539EB59FABC6E307EEEA7B1E5865AFB6D980A93BCB2181" },
+  { name = "jot", version = "1.0.1", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "jot", source = "hex", outer_checksum = "A0A52BD8D079AB0ABF80BE11DC63B85CF5791125991A029FAD7D17820D9419D8" },
+  { name = "lustre", version = "4.3.5", build_tools = ["gleam"], requirements = ["gleam_erlang", "gleam_json", "gleam_otp", "gleam_stdlib"], otp_app = "lustre", source = "hex", outer_checksum = "BED65BD6A23439FB155A5BE166ED3C6BC20DED844FA9BB21840860951BC8E153" },
+  { name = "lustre_ssg", version = "0.8.1", build_tools = ["gleam"], requirements = ["gleam_stdlib", "jot", "lustre", "simplifile", "tom"], otp_app = "lustre_ssg", source = "hex", outer_checksum = "5E37418BCF2038C037E73106433584D3AEB9AEA384CC997B692B157EFF641F94" },
+  { name = "simplifile", version = "1.7.0", build_tools = ["gleam"], requirements = ["filepath", "gleam_stdlib"], otp_app = "simplifile", source = "hex", outer_checksum = "1D5DFA3A2F9319EC85825F6ED88B8E449F381B0D55A62F5E61424E748E7DDEB0" },
+  { name = "thoas", version = "1.2.1", build_tools = ["rebar3"], requirements = [], otp_app = "thoas", source = "hex", outer_checksum = "E38697EDFFD6E91BD12CEA41B155115282630075C2A727E7A6B2947F5408B86A" },
+  { name = "tom", version = "1.0.1", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "tom", source = "hex", outer_checksum = "9EECB60150E834A07238BD5C7DF1FF07F7D4C5862BB8A773923D1981C7875FB0" },
 ]
 
 [requirements]
-gleam_stdlib = { version = "~> 0.31" }
-gleeunit = { version = "~> 0.10" }
-lustre = { version = "~> 3.0" }
-lustre_ssg = { version = "~> 0.2" }
-simplifile = { version = "~> 0.1" }
+gleam_stdlib = { version = ">= 0.34.0 and < 2.0.0" }
+lustre = { version = ">= 4.3.5 and < 5.0.0" }
+lustre_ssg = { version = ">= 0.8.0 and < 1.0.0" }
+simplifile = { version = ">= 1.7.0 and < 2.0.0" }
