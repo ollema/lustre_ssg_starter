@@ -28,7 +28,7 @@ jobs:
       - name: Build app
         run: gleam run -m build
       - name: Update path in index.html to account for GitHub Pages
-        run: sed -i 's|/pico.min.css|/lustre_ssg_starter/pico.min.css|' dist/index.html
+        run: sed -i 's|/pico.min.css|/${GITHUB_REPOSITORY}/pico.min.css|' dist/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
