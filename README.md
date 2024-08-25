@@ -14,8 +14,6 @@ We use [PicoCSS](https://picocss.com/) as a sensible drop-in CSS framework.
 Run `gleam run -m build` to generate the static HTML for your site. How you serve
 it is up to you: everything you need to serve will be in the `dist/` directory.
 
-The template also includes a GitHub Actions workflow that will build and deploy your site to GitHub Pages. The workflow is disabled by default, but you can enable it by uncommenting the `on` key in `.github/workflows/deploy.yml`.
-
 ## Adding pages
 
 Add a new page by creating another djot file inside `src/content/`, for example `src/content/your_new_page.dj`.
