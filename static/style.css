@@ -1,0 +1,5 @@
+body > header > nav > ul > li > a {
+  color: var(--pico-h1-color);
+  font-size: 2rem;
+  font-weight: 700;
+}

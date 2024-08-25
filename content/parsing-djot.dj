@@ -1,3 +1,8 @@
+---
+id = "parsing-djot"
+title = "Parsing djot with lustre_ssg"
+description = "A post about parsing djot syntax with lustre_ssg"
+---
 # Hello, world!
 
 This is my first post!
