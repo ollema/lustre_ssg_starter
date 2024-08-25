@@ -16,15 +16,4 @@ it is up to you: everything you need to serve will be in the `dist/` directory.
 
 ## Adding pages
 
-Add a new page by creating another djot file inside `src/content/`, for example `src/content/your_new_page.dj`.
-
-In the build script you can then add it to the pipeline like so:
-
-```gleam
-pub fn main() {
-  ssg.new("./dist")
-  |> ssg.add_static_route("/", page(render("./src/content/index.dj"), "Home"))
-  |> ssg.add_static_route("/your-new-page", page(render("./src/content/your_new_page.dj"), "Your new page!"))
-  |> ...
-
-```
+You can add new posts by creating another djot file inside `content/`, for example `content/your_new_post.dj`.
